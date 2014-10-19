@@ -15,7 +15,7 @@ import javax.swing.text.DefaultEditorKit;
 
 public class NewJFrame {
 	
-	public JFrame frame = new JFrame();
+	public static JFrame frame = new JFrame();
 	public static JTextArea textArea = new JTextArea();
 	
 	private JPanel contentPane;

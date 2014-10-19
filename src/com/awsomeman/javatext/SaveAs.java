@@ -10,8 +10,10 @@ import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
-public class SaveAs implements ActionListener {
+public class SaveAs extends JFrame implements ActionListener {
+	private static final long serialVersionUID = 1L;
 	
 	public static JFileChooser dialog = JavaText.dialog;
 	public static Action SaveAs;
@@ -40,10 +42,15 @@ public class SaveAs implements ActionListener {
 			fw.close();
 			fileName = newFile.getName();
 			int pos = fileName.lastIndexOf(".");
+			
 			if (pos > 0) {
 			    fileName = fileName.substring(0, pos);
 			}
-			JavaText.frame.setTitle("JavaText - " + fileName);
+			
+			String newTitle = "JavaText - " + fileName;
+			currentFile = fileName;
+			
+			JavaText.frame.setTitle(newTitle);
 			SaveAs.setEnabled(false);
 		} catch (IOException e) {
 			e.printStackTrace();

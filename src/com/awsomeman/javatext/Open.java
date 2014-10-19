@@ -30,8 +30,19 @@ public class Open implements ActionListener {
 						BufferedReader reader = new BufferedReader(new FileReader(file));
 						String line = reader.readLine();
 						
+						String fileName = file.getName();
+						
+						int pos = fileName.lastIndexOf(".");
+						
+						if (pos > 0) {
+						    fileName = fileName.substring(0, pos);
+						}
+						
+						String newTitle = "JavaText - " + fileName;
+						
 						new NewJFrame();
 						NewJFrame.textArea.setText(line);
+						NewJFrame.frame.setTitle(newTitle);
 						reader.close();
 					} catch (FileNotFoundException e1) {
 						e1.printStackTrace();
