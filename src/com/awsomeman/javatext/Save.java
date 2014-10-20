@@ -19,10 +19,10 @@ public class Save implements ActionListener {
 			private static final long serialVersionUID = 1L;
 			
 			public void actionPerformed(ActionEvent e) {
-				if(currentFile.equals("Untitled")) {
-					SaveAs.saveFileAs(currentFile);
-				} else {
+				if(!currentFile.equals("Untitled")) {
 					saveFile(currentFile);
+				} else {
+					SaveAs.saveFileAs(currentFile);
 				}
 			}
 		};

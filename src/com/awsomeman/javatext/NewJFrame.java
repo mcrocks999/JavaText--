@@ -20,7 +20,13 @@ public class NewJFrame {
 	
 	private JPanel contentPane;
 	
-	@SuppressWarnings("unused")
+	Open o;
+	Save s;
+	SaveAs sa;
+	Exit e;
+	Settings set;
+	Help h;
+	
 	public NewJFrame() {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 500, 500);
@@ -66,12 +72,12 @@ public class NewJFrame {
 		
 		helpMenu.add(helpMenuItem);
 		
-		Open o = new Open();
-		Save s = new Save();
-		SaveAs sa = new SaveAs();
-		Exit e = new Exit();
-		Settings set = new Settings();
-		Help h = new Help();
+		o = new Open();
+		s = new Save();
+		sa = new SaveAs();
+		e = new Exit();
+		set = new Settings();
+		h = new Help();
 		openMenuItem.addActionListener(Open.Open);
 		saveMenuItem.addActionListener(Save.Save);
 		saveAsMenuItem.addActionListener(SaveAs.SaveAs);
