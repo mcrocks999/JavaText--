@@ -18,6 +18,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import com.awsomeman.javatext.actions.Exit;
+import com.awsomeman.javatext.actions.Help;
+import com.awsomeman.javatext.actions.Open;
+import com.awsomeman.javatext.actions.Save;
+import com.awsomeman.javatext.actions.SaveAs;
+import com.awsomeman.javatext.actions.Settings;
+
 public class JavaText extends JFrame {
 	private static final long serialVersionUID = 1L;
 	

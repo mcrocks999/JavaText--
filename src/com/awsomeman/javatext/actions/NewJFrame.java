@@ -1,4 +1,4 @@
-package com.awsomeman.javatext;
+package com.awsomeman.javatext.actions;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -12,6 +12,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.DefaultEditorKit;
+
+import com.awsomeman.javatext.JavaText;
 
 public class NewJFrame {
 	

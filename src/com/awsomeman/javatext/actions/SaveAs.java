@@ -1,4 +1,4 @@
-package com.awsomeman.javatext;
+package com.awsomeman.javatext.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import com.awsomeman.javatext.JavaText;
 
 public class SaveAs extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
