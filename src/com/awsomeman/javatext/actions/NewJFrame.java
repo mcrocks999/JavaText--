@@ -30,7 +30,6 @@ public class NewJFrame {
 	Help h;
 	
 	public NewJFrame() {
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 500, 500);
 		frame.setTitle("JavaText - " + JavaText.currentFile);
 		
