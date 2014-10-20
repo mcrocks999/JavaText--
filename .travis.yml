@@ -4,4 +4,4 @@ notifications:
 install: true
 matrix:
   include:
-  - jdk: openjdk6
+  - jdk: openjdk7
