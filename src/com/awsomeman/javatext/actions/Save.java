@@ -21,6 +21,7 @@ public class Save implements ActionListener {
 			private static final long serialVersionUID = 1L;
 			
 			public void actionPerformed(ActionEvent e) {
+				currentFile = JavaText.currentFile;
 				if(!currentFile.equals("Untitled")) {
 					saveFile(currentFile);
 				} else {
@@ -35,7 +36,7 @@ public class Save implements ActionListener {
 			FileWriter w = new FileWriter(fileName);
 			JavaText.textArea.write(w);
 			w.close();
-			currentFile = fileName;
+			JavaText.currentFile = fileName;
 			JavaText.frame.setTitle("JavaText - " + currentFile);
 			Save.setEnabled(false);
 		} catch (IOException e) {

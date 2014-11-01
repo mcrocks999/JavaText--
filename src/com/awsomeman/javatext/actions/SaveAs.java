@@ -55,7 +55,7 @@ public class SaveAs extends JFrame implements ActionListener {
 				}
 				
 				String newTitle = "JavaText - " + fileName;
-				currentFile = fileName;
+				JavaText.currentFile = fileName;
 				
 				JavaText.frame.setTitle(newTitle);
 				SaveAs.setEnabled(false);
