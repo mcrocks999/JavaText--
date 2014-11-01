@@ -41,6 +41,9 @@ public class SaveAs extends JFrame implements ActionListener {
 		
 		int returnValue = save.showSaveDialog(JavaText.frame);
 		File newFile = new File (save.getSelectedFile() + ".txt");
+		if (save.getSelectedFile().getName().endsWith(".txt")) {
+			newFile = new File (save.getSelectedFile() + "");
+		}
 		if(returnValue == JFileChooser.APPROVE_OPTION) {
 			try {
 				newFile.createNewFile();
