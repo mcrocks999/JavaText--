@@ -27,11 +27,14 @@ public class Settings implements ActionListener {
 				panel.add(new JLabel(""));
 				panel.add(new JLabel("Copy CTRL+"));
 				panel.add(new JLabel("Paste CTRL+"));
-				panel.add(new JTextField("C"));
-				panel.add(new JTextField("P"));
+				JTextField copyShortcut = new JTextField("C");
+				panel.add(copyShortcut);
+				JTextField pasteShortcut = new JTextField("V");
+				panel.add(pasteShortcut);
 				panel.add(new JLabel("Cut CTRL+"));
 				panel.add(new JLabel(""));
-				panel.add(new JTextField("X"));
+				JTextField cutShortcut = new JTextField("X");
+				panel.add(cutShortcut);
 				panel.add(new JLabel(""));
 				panel.add(new JLabel(""));
 				panel.add(new JLabel(""));
@@ -41,12 +44,19 @@ public class Settings implements ActionListener {
 				panel.add(new JLabel(""));
 				panel.add(new JLabel("File format"));
 				panel.add(new JLabel("Name"));
-				panel.add(new JTextField(".txt"));
-				panel.add(new JTextField(""));
+				JTextField fileFormat = new JTextField(".txt");
+				panel.add(fileFormat);
+				JTextField userName = new JTextField("");
+				panel.add(userName);
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				switch (result) {
 				    case JOptionPane.OK_OPTION:
+				    	System.out.println(copyShortcut.getText());
+				    	System.out.println(pasteShortcut.getText());
+				    	System.out.println(cutShortcut.getText());
+				    	System.out.println(fileFormat.getText());
+				    	System.out.println(userName.getText());
 				        //...
 				        break;
 				    case JOptionPane.CANCEL_OPTION:
