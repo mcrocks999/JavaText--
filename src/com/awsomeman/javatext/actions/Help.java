@@ -18,7 +18,7 @@ public class Help implements ActionListener {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(JavaText.frame, "JavaText - Version 1.0.0.3 \nMade By: 12AwsomeMan34");
+				JOptionPane.showMessageDialog(JavaText.frame, "JavaText - Version 1.0.1.1 \n\nDeveloped By:\n12AwsomeMan34\nand\nMCRocks999");
 			}
 		};
 	}
