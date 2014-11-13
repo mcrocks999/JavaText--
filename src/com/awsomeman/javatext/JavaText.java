@@ -1,8 +1,10 @@
 package com.awsomeman.javatext;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,13 +12,25 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
+import javax.swing.text.Document;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
+import javax.swing.undo.CannotRedoException;
+import javax.swing.undo.CannotUndoException;
+import javax.swing.undo.UndoManager;
+import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
 
 import com.awsomeman.javatext.actions.Exit;
 import com.awsomeman.javatext.actions.Help;
@@ -30,6 +44,8 @@ public class JavaText extends JFrame {
 	
 	public static String currentFile = "Untitled";
 	public static JTextArea textArea = new JTextArea();
+	final UndoManager undo = new UndoManager();
+    Document doc = textArea.getDocument();
 	public static JavaText frame = new JavaText();
 	public static JFileChooser dialog = new JFileChooser(System.getProperty("user.dir"));
 	public static boolean changed = false;
@@ -109,6 +125,60 @@ public class JavaText extends JFrame {
 		textArea.setLineWrap(true);
 		textArea.setFont(new Font("Arial", Font.PLAIN, 14));
 		contentPane.add(textArea, BorderLayout.CENTER);
+
+		StyleContext sc = new StyleContext();
+		Style style = sc.addStyle("yourStyle", null);
+
+		try {
+			doc.insertString(doc.getLength(), "JavaText\n\nCreated by: 12AwsomeMan34 and MCRocks999", style);
+		} catch (BadLocationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		doc.addUndoableEditListener(new UndoableEditListener() {
+	        public void undoableEditHappened(UndoableEditEvent evt) {
+	            undo.addEdit(evt.getEdit());
+	        }
+	    });
+	    
+	    textArea.getActionMap().put("Undo",
+	        new AbstractAction("Undo") {
+	            /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+				public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    if (undo.canUndo()) {
+	                        undo.undo();
+	                    }
+	                } catch (CannotUndoException e) {
+	                }
+	            }
+	       });
+	    
+	    textArea.getInputMap().put(KeyStroke.getKeyStroke("control Z"), "Undo");
+	    
+	    textArea.getActionMap().put("Redo",
+	        new AbstractAction("Redo") {
+	            /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+				public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    if (undo.canRedo()) {
+	                        undo.redo();
+	                    }
+	                } catch (CannotRedoException e) {
+	                }
+	            }
+	        });
+	    
+	    textArea.getInputMap().put(KeyStroke.getKeyStroke("control Y"), "Redo");
 		
 		JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
