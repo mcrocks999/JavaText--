@@ -10,8 +10,9 @@ public class AutoSave extends Thread
         {
 	        while(true){
 	        	if (Settings.autoSave=="true") {
+	        		System.out.println("test2");
 		        	if (JavaText.currentFile!="Untitled") {
-		        		Save.saveFile(JavaText.currentFile);
+		        		Save.saveFile(JavaText.currentFilePath+"-autosave","", false);
 		        	}
 	        	}
 	        	try {

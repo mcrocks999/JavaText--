@@ -11,11 +11,11 @@ import com.awsomeman.javatext.JavaText;
 
 public class KeyShortcuts {
 	
-	public static String currentUndo = "z";
-	public static String currentRedo = "y";
-	public static String currentSave = "s";
-	public static String currentSaveAs = "s";
-	public static String currentOpen = "o";
+	public static String currentUndo = "Z";
+	public static String currentRedo = "Y";
+	public static String currentSave = "S";
+	public static String currentSaveAs = "S";
+	public static String currentOpen = "O";
 	
 	public static void setUndo(String selectedKey) {
 	    JavaText.textArea.getInputMap().put(KeyStroke.getKeyStroke("control Z"), "Undo");

@@ -1,0 +1,56 @@
+English=MCRocks999
+
+UntitledFile=Untitled
+FileMenu=File
+EditMenu=Edit
+FontMenu=Font
+FontSizeMenu=Change Size
+FontTypefaceMenu=Set Font
+SettingsMenu=Settings
+SettingsAutosaveMenu=Autosave
+HelpMenu=Help
+NewMenuItem=New
+OpenMenuItem=Open
+SaveMenuItem=Save
+SaveAsMenuItem=Save As
+ExitMenuItem=Exit
+CopyMenuItem=Copy
+PasteMenuItem=Paste
+CutMenuItem=Cut
+EnlargeMenuItem=Enlarge by 1
+EnlargeFiveMenuItem=Enlarge by 5
+EnlargeTenMenItem=Enlarge by 10
+ShrinkMenuItem=Shrink by 1
+ShrinkFiveMenuItem=Shrink by 5
+ShrinkTenMenuItem=Shrink by 10
+OptionsMenuItem=Options
+KeyShortcutSettingsFiveMenuItem=Key Shortcut Settings
+OpenSettingsFileMenuItem=Open Settings File
+OpenKeyShortcutsFileMenuItem=Open Key Shortcuts File
+EnableAutosaveMenuItem=Enable Autosave
+DisableAutosaveMenuItem=Disable Autosave
+SetMSAutosaveMenuItem=Set Autosave (ms)
+AboutMenuItem=About
+HelpMenuItem=Help
+WelcomeBackMessage=Welcome back,
+DefaultMessage=Created by: 12AwsomeMan34 and MCRocks999
+
+fileFormatTxt=Text Files .txt
+fileFormatHtml=Hypertext Markup Language .html
+fileFormatNoFormat=No file format set
+fileFormatCustom=Unknown format
+
+settingsLabelFileFormat=File format
+settingsLabelName=Name
+settingsLabelFont=Font
+settingsLabelFontsize=Font size
+settingsMessageCannotSave=Cannot save settings
+
+keyShortcutSettingsLabelUndo=Undo
+keyShortcutSettingsLabelRedo=Redo
+keyShortcutSettingsMessageCannotSave=Cannot save key shortcuts
+
+aboutMessage=JavaText - Version
+aboutMessage2=\n\nDeveloped By:\n12AwsomeMan34\nand\nMCRocks999
+
+tmpHelpMessage=Help feature soon to come!

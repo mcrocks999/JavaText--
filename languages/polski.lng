@@ -1,0 +1,56 @@
+Polski=MCRocks999
+
+UntitledFile=Plik bez imienu
+FileMenu=Pliki
+EditMenu=Edytuj
+FontMenu=Font
+FontSizeMenu=Zmien duzoscz
+FontTypefaceMenu=Zmien font
+SettingsMenu=Ustawienia
+SettingsAutosaveMenu=Automaticzne zapisanie
+HelpMenu=Pomoc
+NewMenuItem=Nowe
+OpenMenuItem=Otwoszz
+SaveMenuItem=Zapisz
+SaveAsMenuItem=Zapisz Jako
+ExitMenuItem=Zamkni
+CopyMenuItem=Copjui
+PasteMenuItem=Wklej
+CutMenuItem=Wytn
+EnlargeMenuItem=Wienksze o 1
+EnlargeFiveMenuItem=Wienksze o 5
+EnlargeTenMenuItem=Wienksze o 10
+ShrinkMenuItem=Miesze o 1
+ShrinkFiveMenuItem=Miesze o 5
+ShrinkTenMenItem=Miesze o 10
+OptionsMenuItem=Opcje
+KeyShortcutSettingsFiveMenuItem=Ustawienia na klawisze
+OpenSettingsFileMenuItem=Otwosz Plik Ustawien
+OpenKeyShortcutsFileMenuItem=Otwosz Plik Ustawien klawiszuw
+EnableAutosaveMenuItem=Wlancz Automaticzne Zapiszanie
+DisableAutosaveMenuItem=Wylancz Automaticzne Zapiszanie
+SetMSAutosaveMenuItem=Ustaw Automaticzne Zapiszanie (ms)
+AboutMenuItem=Co to?
+HelpMenuItem=Pomoc
+WelcomeBackMessage=Witay spowrotem,
+DefaultMessage=Stwozone przez: 12AwsomeMan34 i MCRocks999
+
+fileFormatTxt=Pliki textowe .txt
+fileFormatHtml=Hypertext Markup Language .html
+fileFormatNoFormat=Format nie ustawioni
+fileFormatCustom=Niewiadomy format
+
+settingsLabelFileFormat=Format plikuw
+settingsLabelName=Imie
+settingsLabelFont=Font
+settingsLabelFontsize=Duzoscz fontu
+settingsMessageCannotSave=Nie da sie zapisacz ustawien
+
+keyShortcutSettingsLabelUndo=Od rub
+keyShortcutSettingsLabelRedo=Zrub znowu
+keyShortcutSettingsMessageCannotSave=Nie da sie zapisacz ustawien
+
+aboutMessage=JavaText - Wersjia
+aboutMessage2=\n\nStwozone przez:\n12AwsomeMan34\ni\nMCRocks999
+
+tmpHelpMessage=Funcjia pomocowa jescze jest w twozeniu
