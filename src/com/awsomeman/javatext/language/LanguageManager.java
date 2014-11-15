@@ -13,9 +13,11 @@ import com.awsomeman.javatext.actions.Exit;
 public class LanguageManager extends Thread{
 	public static ArrayList<String> languagePaths = new ArrayList<String>();
 	public static ArrayList<String> languagePathsExclude = new ArrayList<String>();
+	public static int currentLanguageUUID = 0;
 	public static String currentLanguageName = "";
 	public static String currentLanguageAuthor = "";
 	public static ArrayList<String> currentLanguage = null;
+	public static int loadLanguageBySettings = 0;
 	
 	public void run() {
 		while(true){
@@ -74,13 +76,31 @@ public class LanguageManager extends Thread{
 	    }
 	    
 	    if (languagePaths.isEmpty()) {
-	    	JOptionPane.showConfirmDialog(null, "No languages have been added.", "Error", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+	    	JOptionPane.showConfirmDialog(null, "No languages have been added.", "Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 	    	Exit.ExitMethod();
 	    }
 	}
 
 	public static String getFirstLanguage() {
-		return languagePaths.get(0).toString();
+		if (loadLanguageBySettings==0) {
+			return languagePaths.get(0).toString();
+		}else{
+			boolean hasFound = false;
+			int someCount = 0;
+			for (String language : languagePaths) {
+				if (hasFound==false) {
+					String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(language));
+					try {
+						if (Integer.parseInt(returnedValue[2])==loadLanguageBySettings) {
+							hasFound = true;
+							return languagePaths.get(someCount).toString();
+						}
+					}finally{}
+					someCount += 1;
+				}
+			}
+			return languagePaths.get(0).toString();
+		}
 	}
 
 	public static ArrayList<String> loadLanguage(String languageToLoad) {

@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ import javax.swing.JTextField;
 
 import com.awsomeman.javatext.JavaText;
 import com.awsomeman.javatext.functions.CreateFile;
+import com.awsomeman.javatext.language.LanguageManager;
 import com.awsomeman.javatext.language.LanguageParser;
 
 public class Settings implements ActionListener {
@@ -54,6 +56,10 @@ public class Settings implements ActionListener {
 				panel.add(new JLabel(LanguageParser.getWords(45)));
 				JTextField fontSizetf = new JTextField(fontSize.toString());
 				panel.add(fontSizetf);
+				panel.add(new JLabel("Language/Jenzyk"));
+				String[] languages = {"English","Polski"};
+			    JComboBox languagecb = new JComboBox(languages);
+				panel.add(languagecb);
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				switch (result) {
@@ -65,7 +71,25 @@ public class Settings implements ActionListener {
 				    		fontSize = Integer.parseInt(fontSizetf.getText());
 				    		JavaText.textArea.setFont(new Font(fontTypeface,Font.PLAIN,fontSize));
 				    	}finally{}
+				    	String prevLang = LanguageManager.currentLanguageName;
+				    	LanguageManager.currentLanguageName = languagecb.getSelectedItem().toString();
+				    	if (languagecb.getSelectedItem().toString()=="English") {
+				    		LanguageManager.currentLanguageUUID = 65296;
+				    	}
+				    	if (languagecb.getSelectedItem().toString()=="Polski") {
+				    		LanguageManager.currentLanguageUUID = 37582;
+				    	}
 				    	saveSettings();
+				    	if (LanguageManager.currentLanguageName!=prevLang) {
+				    		int result2 = JOptionPane.showConfirmDialog(null, LanguageParser.getWords(57), LanguageParser.getWords(58), JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+				    		switch (result2) {
+						    	case JOptionPane.OK_OPTION:
+						    		Exit.ExitMethod();
+						    		break;
+						    	case JOptionPane.CANCEL_OPTION:
+							        break;
+				    		}
+				    	}
 				        break;
 				    case JOptionPane.CANCEL_OPTION:
 				        //...
@@ -91,7 +115,7 @@ public class Settings implements ActionListener {
 		FileWriter w;
 		try {
 			w = new FileWriter(file);
-			w.write(fileFormat+"-"+userName+"-"+autoSave+"-"+autoSaveMS+"-"+fontTypeface+"-"+fontSize);
+			w.write(fileFormat+"-"+userName+"-"+autoSave+"-"+autoSaveMS+"-"+fontTypeface+"-"+fontSize+"-"+LanguageManager.currentLanguageUUID);
 			w.close();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(46));
@@ -149,6 +173,11 @@ public class Settings implements ActionListener {
 					fontSize = Integer.parseInt(settings[5]);				
 				}catch (Exception e){
 					fontSize = 14;
+				}
+				try{
+					LanguageManager.loadLanguageBySettings = Integer.parseInt(settings[6]);				
+				}catch (Exception e){
+					LanguageManager.loadLanguageBySettings = 65296;
 				}
 				
 				reader.close();

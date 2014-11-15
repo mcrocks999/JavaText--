@@ -1,4 +1,4 @@
-Polski=MCRocks999
+Polski=MCRocks999=37582
 
 UntitledFile=Plik bez imienu
 FileMenu=Pliki
@@ -54,3 +54,6 @@ aboutMessage=JavaText - Wersjia
 aboutMessage2=\n\nStwozone przez:\n12AwsomeMan34\ni\nMCRocks999
 
 tmpHelpMessage=Funcjia pomocowa jescze jest w twozeniu
+
+settingsLanguageChangeMessage=Zeby jenzyk byl zmieniony, ten program musci byc restartowani.
+settingsLanguageChangeMessageTitle=Restart potzebni

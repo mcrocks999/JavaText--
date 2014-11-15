@@ -1,4 +1,4 @@
-English=MCRocks999
+English=MCRocks999=65296
 
 UntitledFile=Untitled
 FileMenu=File
@@ -53,4 +53,7 @@ keyShortcutSettingsMessageCannotSave=Cannot save key shortcuts
 aboutMessage=JavaText - Version
 aboutMessage2=\n\nDeveloped By:\n12AwsomeMan34\nand\nMCRocks999
 
-tmpHelpMessage=Help feature soon to come!
+HelpMessage=Help feature soon to come!
+
+settingsLanguageChangeMessage=For language to be changed, the program has to restart.
+settingsLanguageChangeMessageTitle=Required restart
