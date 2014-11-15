@@ -9,16 +9,16 @@ import javax.swing.JOptionPane;
 
 import com.awsomeman.javatext.JavaText;
 
-public class Help implements ActionListener {
+public class About implements ActionListener {
 	
 	public static Action Help;
 	
-	public Help() {
+	public About() {
 		Help = new AbstractAction("Help") {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(JavaText.frame, "Help feature soon to come!");
+				JOptionPane.showMessageDialog(JavaText.frame, "JavaText - Version 1.0.1.1 \n\nDeveloped By:\n12AwsomeMan34\nand\nMCRocks999");
 			}
 		};
 	}

@@ -11,24 +11,26 @@ import java.nio.file.Paths;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-
 import com.awsomeman.javatext.JavaText;
 
-public class Exit implements ActionListener {
+public class New implements ActionListener {
 	
-	public static Action Exit;
+	public static Action New;
 	
-	public Exit() {
-		Exit = new AbstractAction("Exit") {
+	public New() {
+		New = new AbstractAction("New") {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Exiting...");
 				try {
 					Path path = Paths.get(JavaText.currentFilePath+"-autosave");
 				    Files.deleteIfExists(path);
 				} catch (NoSuchFileException x) {} catch (DirectoryNotEmptyException x) {} catch (IOException x) {}
-				System.exit(0);
+				JavaText.currentFile = "Untitled";
+				JavaText.textArea.setText("");
+				JavaText.changed = false;
+				Save.Save.setEnabled(false);
+				SaveAs.SaveAs.setEnabled(false);
 			}
 		};
 	}

@@ -7,6 +7,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -23,6 +28,10 @@ public class Open implements ActionListener {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Path path = Paths.get(JavaText.currentFilePath+"-autosave");
+				    Files.deleteIfExists(path);
+				} catch (NoSuchFileException x) {} catch (DirectoryNotEmptyException x) {} catch (IOException x) {}
 				final JFileChooser fc = new JFileChooser();
 				int returnValue = fc.showOpenDialog(JavaText.frame);
 				
@@ -42,9 +51,9 @@ public class Open implements ActionListener {
 						
 						String newTitle = "JavaText - " + fileName;
 						
-						new NewJFrame();
-						NewJFrame.textArea.setText(line);
-						NewJFrame.frame.setTitle(newTitle);
+						JavaText.textArea.setText(line);
+						JavaText.frame.setTitle(newTitle);
+						JavaText.currentFile = fileName;
 						reader.close();
 					} catch (FileNotFoundException e1) {
 						e1.printStackTrace();
