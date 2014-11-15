@@ -60,6 +60,12 @@ public class Settings implements ActionListener {
 				panel.add(fileFormattf);
 				JTextField userNametf = new JTextField("");
 				panel.add(userNametf);
+				panel.add(new JLabel("Auto-save"));
+				panel.add(new JLabel("Every (ms)"));
+				JTextField autoSavetf = new JTextField("false");
+				panel.add(autoSavetf);
+				JTextField autoSaveMStf = new JTextField(autoSaveMS);
+				panel.add(autoSaveMStf);
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				switch (result) {
@@ -69,6 +75,8 @@ public class Settings implements ActionListener {
 				    	System.out.println(cutShortcuttf.getText());
 				    	System.out.println(fileFormattf.getText());
 				    	System.out.println(userNametf.getText());
+				    	System.out.println(autoSavetf.getText());
+				    	System.out.println(autoSaveMStf.getText());
 				        break;
 				    case JOptionPane.CANCEL_OPTION:
 				        //...

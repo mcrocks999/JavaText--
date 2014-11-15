@@ -13,7 +13,6 @@ import com.awsomeman.javatext.JavaText;
 public class Save implements ActionListener {
 	
 	public static String currentFile = JavaText.currentFile;
-	public static String currentFilePath = JavaText.currentFilePath;
 	
 	public static Action Save;
 	
@@ -23,9 +22,8 @@ public class Save implements ActionListener {
 			
 			public void actionPerformed(ActionEvent e) {
 				currentFile = JavaText.currentFile;
-				currentFilePath = JavaText.currentFilePath;
 				if(!currentFile.equals("Untitled")) {
-					saveFile(currentFilePath, currentFile, true);
+					saveFile(currentFile);
 				} else {
 					SaveAs.saveFileAs(currentFile);
 				}
@@ -33,15 +31,13 @@ public class Save implements ActionListener {
 		};
 	}
 	
-	public static void saveFile(String filePath, String fileName, Boolean shouldSetTitle) {
+	public static void saveFile(String fileName) {
 		try {
-			FileWriter w = new FileWriter(filePath);
+			FileWriter w = new FileWriter(fileName);
 			JavaText.textArea.write(w);
 			w.close();
-			if (shouldSetTitle==true) {
-				JavaText.currentFile = fileName;
-				JavaText.frame.setTitle("JavaText - " + fileName);
-			}
+			JavaText.currentFile = fileName;
+			JavaText.frame.setTitle("JavaText - " + currentFile);
 			Save.setEnabled(false);
 		} catch (IOException e) {}
 	}

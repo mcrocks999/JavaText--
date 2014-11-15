@@ -28,11 +28,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
 
 import com.awsomeman.javatext.actions.Exit;
-import com.awsomeman.javatext.actions.About;
 import com.awsomeman.javatext.actions.Help;
-import com.awsomeman.javatext.actions.KeyShortcutSettings;
 import com.awsomeman.javatext.actions.New;
 import com.awsomeman.javatext.actions.Open;
 import com.awsomeman.javatext.actions.Save;
@@ -40,17 +39,14 @@ import com.awsomeman.javatext.actions.SaveAs;
 import com.awsomeman.javatext.actions.Settings;
 import com.awsomeman.javatext.actions.autosave.DisableAutosave;
 import com.awsomeman.javatext.actions.autosave.EnableAutosave;
-import com.awsomeman.javatext.actions.autosave.SetMS;
 import com.awsomeman.javatext.functions.AutoSave;
-import com.awsomeman.javatext.functions.KeyShortcuts;
 
 public class JavaText extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	public static String currentFile = "Untitled";
-	public static String currentFilePath = "";
 	public static JTextArea textArea = new JTextArea();
-	final static UndoManager undo = new UndoManager();
+	final UndoManager undo = new UndoManager();
     Document doc = textArea.getDocument();
 	public static JavaText frame = new JavaText();
 	public static JFileChooser dialog = new JFileChooser(System.getProperty("user.dir"));
@@ -64,11 +60,8 @@ public class JavaText extends JFrame {
 	SaveAs sa;
 	Exit e;
 	Settings set;
-	KeyShortcutSettings ksset;
 	EnableAutosave ea;
 	DisableAutosave da;
-	SetMS sm;
-	About a;
 	Help h;
 	
 	public JavaText() {
@@ -102,14 +95,10 @@ public class JavaText extends JFrame {
 		JMenuItem copyMenuItem = new JMenuItem(new DefaultEditorKit.CopyAction());
 		JMenuItem pasteMenuItem = new JMenuItem(new DefaultEditorKit.PasteAction());
 		JMenuItem optionsMenuItem = new JMenuItem("Options");
-		JMenuItem keyShortcutSettingsMenuItem = new JMenuItem("Key Shortcut Settings");
 		JMenuItem enableAutosaveMenuItem = new JMenuItem("Enable Autosave");
 		JMenuItem disableAutosaveMenuItem = new JMenuItem("Disable Autosave");
-		JMenuItem setMSAutosaveMenuItem = new JMenuItem("Set Autosave (ms)");
-		JMenuItem aboutMenuItem = new JMenuItem("About");
 		JMenuItem helpMenuItem = new JMenuItem("Help");
-		JMenuItem seperatorMenuItem = new JMenuItem("------------------------------");
-		JMenuItem seperator2MenuItem = new JMenuItem("----------");
+		JMenuItem seperatorMenuItem = new JMenuItem("------");
 		
 		cutMenuItem.setText("Cut");
 		copyMenuItem.setText("Copy");
@@ -126,15 +115,11 @@ public class JavaText extends JFrame {
 		editMenu.add(pasteMenuItem);
 		
 		settingsMenu.add(optionsMenuItem);
-		settingsMenu.add(keyShortcutSettingsMenuItem);
 		settingsMenu.add(seperatorMenuItem);
 		settingsMenu.add(enableAutosaveMenuItem);
 		settingsMenu.add(disableAutosaveMenuItem);
-		settingsMenu.add(setMSAutosaveMenuItem);
 		
 		helpMenu.add(helpMenuItem);
-		helpMenu.add(seperator2MenuItem);
-		helpMenu.add(aboutMenuItem);
 
 		n = new New();
 		o = new Open();
@@ -142,11 +127,8 @@ public class JavaText extends JFrame {
 		sa = new SaveAs();
 		e = new Exit();
 		set = new Settings();
-		ksset = new KeyShortcutSettings();
 		ea = new EnableAutosave();
 		da = new DisableAutosave();
-		sm = new SetMS();
-		a = new About();
 		h = new Help();
 		newMenuItem.addActionListener(New.New);
 		openMenuItem.addActionListener(Open.Open);
@@ -154,11 +136,8 @@ public class JavaText extends JFrame {
 		saveAsMenuItem.addActionListener(SaveAs.SaveAs);
 		exitMenuItem.addActionListener(Exit.Exit);
 		optionsMenuItem.addActionListener(Settings.Settings);
-		keyShortcutSettingsMenuItem.addActionListener(KeyShortcutSettings.Settings);
 		enableAutosaveMenuItem.addActionListener(EnableAutosave.EnableAutosave);
 		disableAutosaveMenuItem.addActionListener(DisableAutosave.DisableAutosave);
-		setMSAutosaveMenuItem.addActionListener(SetMS.SetMS);
-		aboutMenuItem.addActionListener(About.Help);
 		helpMenuItem.addActionListener(Help.Help);
 		
 		contentPane = new JPanel();
@@ -185,8 +164,43 @@ public class JavaText extends JFrame {
 	        }
 	    });
 	    
-		setupKeyFunctions();
-		KeyShortcuts.setDefaultBindings();
+	    textArea.getActionMap().put("Undo",
+	        new AbstractAction("Undo") {
+	            /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+				public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    if (undo.canUndo()) {
+	                        undo.undo();
+	                    }
+	                } catch (CannotUndoException e) {
+	                }
+	            }
+	       });
+	    
+	    textArea.getInputMap().put(KeyStroke.getKeyStroke("control Z"), "Undo");
+	    
+	    textArea.getActionMap().put("Redo",
+	        new AbstractAction("Redo") {
+	            /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+				public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    if (undo.canRedo()) {
+	                        undo.redo();
+	                    }
+	                } catch (CannotRedoException e) {
+	                }
+	            }
+	        });
+	    
+	    textArea.getInputMap().put(KeyStroke.getKeyStroke("control Y"), "Redo");
 		
 		JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -215,44 +229,5 @@ public class JavaText extends JFrame {
 				System.out.println("Initialized successfully.");
 			}
 		});
-	}
-	
-	public static void setupKeyFunctions() {
-		System.out.println("'ello");
-		textArea.getActionMap().put("Redo",
-		        new AbstractAction("Redo") {
-		            /**
-					 * 
-					 */
-					private static final long serialVersionUID = 1L;
-
-					public void actionPerformed(ActionEvent evt) {
-		                try {
-		                    if (undo.canRedo()) {
-		                        undo.redo();
-		                    }
-		                } catch (CannotRedoException e) {
-		                }
-		            }
-		        });
-		textArea.getActionMap().put("Undo",
-		        new AbstractAction("Undo") {
-		            /**
-					 * 
-					 */
-					private static final long serialVersionUID = 1L;
-
-					public void actionPerformed(ActionEvent evt) {
-		                try {
-		                    if (undo.canUndo()) {
-		                        undo.undo();
-		                    }
-		                } catch (CannotUndoException e) {
-		                }
-		            }
-		       });
-		textArea.getActionMap().put("Save",Save.Save);
-		textArea.getActionMap().put("SaveAs",SaveAs.SaveAs);
-		textArea.getActionMap().put("Open",Open.Open);
 	}
 }

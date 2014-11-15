@@ -35,20 +35,13 @@ public class SaveAs extends JFrame implements ActionListener {
 	
 	public static void saveFileAs(String fileName) {
 		JFileChooser save = new JFileChooser("Save");
-		FileFilter filter;
-		if (Settings.fileFormat==".txt") {
-			filter = new FileNameExtensionFilter("Text Files .txt", "txt");
-		}else if(Settings.fileFormat==".html"){
-			filter = new FileNameExtensionFilter("Hypertext Markup Language .html", "html");
-		}else{
-			filter = new FileNameExtensionFilter("Custom format "+Settings.fileFormat, Settings.fileFormat);
-		}
+		FileFilter filter = new FileNameExtensionFilter("Text Files .txt", "txt");
 		save.setFileFilter(filter);
 		save.setVisible(true);
 		
 		int returnValue = save.showSaveDialog(JavaText.frame);
-		File newFile = new File (save.getSelectedFile() + Settings.fileFormat);
-		if (save.getSelectedFile().getName().endsWith(Settings.fileFormat)) {
+		File newFile = new File (save.getSelectedFile() + ".txt");
+		if (save.getSelectedFile().getName().endsWith(".txt")) {
 			newFile = new File (save.getSelectedFile() + "");
 		}
 		if(returnValue == JFileChooser.APPROVE_OPTION) {
@@ -64,7 +57,10 @@ public class SaveAs extends JFrame implements ActionListener {
 				    fileName = fileName.substring(0, pos);
 				}
 				
-				Save.saveFile(newFile.getPath(), fileName, true);
+				String newTitle = "JavaText - " + fileName;
+				JavaText.currentFile = fileName;
+				
+				JavaText.frame.setTitle(newTitle);
 				SaveAs.setEnabled(false);
 			} catch (IOException e) {
 				e.printStackTrace();
