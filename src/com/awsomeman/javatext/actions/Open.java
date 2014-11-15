@@ -36,33 +36,7 @@ public class Open implements ActionListener {
 				
 				if(returnValue == JFileChooser.APPROVE_OPTION) {
 					File file = fc.getSelectedFile();
-<<<<<<< HEAD
 					openFile(file);
-=======
-					try {
-						BufferedReader reader = new BufferedReader(new FileReader(file));
-						String line = reader.readLine();
-						
-						String fileName = file.getName();
-						
-						int pos = fileName.lastIndexOf(".");
-						
-						if (pos > 0) {
-						    fileName = fileName.substring(0, pos);
-						}
-						
-						String newTitle = "JavaText - " + fileName;
-						
-						JavaText.textArea.setText(line);
-						JavaText.frame.setTitle(newTitle);
-						JavaText.currentFile = fileName;
-						reader.close();
-					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (IOException e2) {
-						e2.printStackTrace();
-					}
->>>>>>> parent of bd3bcaf... Auto-save and other things
 				}
 			}
 		};

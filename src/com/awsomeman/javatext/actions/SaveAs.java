@@ -40,11 +40,8 @@ public class SaveAs extends JFrame implements ActionListener {
 			filter = new FileNameExtensionFilter("Text Files .txt", "txt");
 		}else if(Settings.fileFormat==".html"){
 			filter = new FileNameExtensionFilter("Hypertext Markup Language .html", "html");
-<<<<<<< HEAD
 		}else if(Settings.fileFormat.isEmpty()){
 			filter = new FileNameExtensionFilter("No file format set", "");
-=======
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		}else{
 			filter = new FileNameExtensionFilter("Custom format "+Settings.fileFormat, Settings.fileFormat);
 		}

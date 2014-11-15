@@ -38,15 +38,10 @@ import com.awsomeman.javatext.actions.Settings;
 import com.awsomeman.javatext.actions.autosave.DisableAutosave;
 import com.awsomeman.javatext.actions.autosave.EnableAutosave;
 import com.awsomeman.javatext.actions.autosave.SetMS;
-<<<<<<< HEAD
 import com.awsomeman.javatext.actions.fontModifiers.ModifyFontSize;
 import com.awsomeman.javatext.actions.fontModifiers.ModifyFontface;
 import com.awsomeman.javatext.functions.AutoSave;
 import com.awsomeman.javatext.language.LanguageManager;
-=======
-import com.awsomeman.javatext.functions.AutoSave;
-import com.awsomeman.javatext.functions.KeyShortcuts;
->>>>>>> parent of bd3bcaf... Auto-save and other things
 
 public class JavaText extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -125,23 +120,16 @@ public class JavaText extends JFrame {
 		JMenuItem setTimesMenuItem = new JMenuItem("Times New Roman");
 		JMenuItem optionsMenuItem = new JMenuItem("Options");
 		JMenuItem keyShortcutSettingsMenuItem = new JMenuItem("Key Shortcut Settings");
-<<<<<<< HEAD
 		JMenuItem openSettingsFileMenuItem = new JMenuItem("Open Settings File");
 		JMenuItem openKeyShortcutsFileMenuItem = new JMenuItem("Open Key Shortcuts File");
-=======
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		JMenuItem enableAutosaveMenuItem = new JMenuItem("Enable Autosave");
 		JMenuItem disableAutosaveMenuItem = new JMenuItem("Disable Autosave");
 		JMenuItem setMSAutosaveMenuItem = new JMenuItem("Set Autosave (ms)");
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		JMenuItem helpMenuItem = new JMenuItem("Help");
 		JMenuItem seperatorMenuItem = new JMenuItem("------------------------------");
-<<<<<<< HEAD
 		JMenuItem seperator2MenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator3MenuItem = new JMenuItem("----------");
-=======
-		JMenuItem seperator2MenuItem = new JMenuItem("----------");
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		
 		cutMenuItem.setText("Cut");
 		copyMenuItem.setText("Copy");
@@ -174,7 +162,6 @@ public class JavaText extends JFrame {
 		settingsMenu.add(optionsMenuItem);
 		settingsMenu.add(keyShortcutSettingsMenuItem);
 		settingsMenu.add(seperatorMenuItem);
-<<<<<<< HEAD
 		settingsMenu.add(openSettingsFileMenuItem);
 		settingsMenu.add(openKeyShortcutsFileMenuItem);
 		settingsMenu.add(seperator2MenuItem);
@@ -186,14 +173,6 @@ public class JavaText extends JFrame {
 		
 		helpMenu.add(helpMenuItem);
 		helpMenu.add(seperator3MenuItem);
-=======
-		settingsMenu.add(enableAutosaveMenuItem);
-		settingsMenu.add(disableAutosaveMenuItem);
-		settingsMenu.add(setMSAutosaveMenuItem);
-		
-		helpMenu.add(helpMenuItem);
-		helpMenu.add(seperator2MenuItem);
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		helpMenu.add(aboutMenuItem);
 
 		n = new New();
@@ -229,11 +208,8 @@ public class JavaText extends JFrame {
 		
 		optionsMenuItem.addActionListener(Settings.Settings);
 		keyShortcutSettingsMenuItem.addActionListener(KeyShortcutSettings.Settings);
-<<<<<<< HEAD
 		openSettingsFileMenuItem.addActionListener(Settings.OpenSettingsFile);
 		openKeyShortcutsFileMenuItem.addActionListener(KeyShortcutSettings.OpenSettingsFile);
-=======
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		enableAutosaveMenuItem.addActionListener(EnableAutosave.EnableAutosave);
 		disableAutosaveMenuItem.addActionListener(DisableAutosave.DisableAutosave);
 		setMSAutosaveMenuItem.addActionListener(SetMS.SetMS);
@@ -263,12 +239,6 @@ public class JavaText extends JFrame {
 	            undo.addEdit(evt.getEdit());
 	        }
 	    });
-<<<<<<< HEAD
-=======
-	    
-		setupKeyFunctions();
-		KeyShortcuts.setDefaultBindings();
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		
 		JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -302,10 +272,6 @@ public class JavaText extends JFrame {
 	}
 	
 	public static void setupKeyFunctions() {
-<<<<<<< HEAD
-=======
-		System.out.println("'ello");
->>>>>>> parent of bd3bcaf... Auto-save and other things
 		textArea.getActionMap().put("Redo",
 		        new AbstractAction("Redo") {
 		            /**
