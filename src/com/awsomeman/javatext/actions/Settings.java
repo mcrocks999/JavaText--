@@ -47,16 +47,20 @@ public class Settings implements ActionListener {
 				panel.add(new JLabel("Name"));
 				JTextField userNametf = new JTextField(userName);
 				panel.add(userNametf);
+<<<<<<< HEAD
 				panel.add(new JLabel("Font"));
 				JTextField fonttf = new JTextField(fontTypeface);
 				panel.add(fonttf);
 				panel.add(new JLabel("Font size"));
 				JTextField fontSizetf = new JTextField(fontSize.toString());
 				panel.add(fontSizetf);
+=======
+>>>>>>> parent of bd3bcaf... Auto-save and other things
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				switch (result) {
 				    case JOptionPane.OK_OPTION:
+<<<<<<< HEAD
 				    	fileFormat = fileFormattf.getText();
 				    	userName = userNametf.getText();
 				    	fontTypeface = fonttf.getText();
@@ -65,6 +69,13 @@ public class Settings implements ActionListener {
 				    		JavaText.textArea.setFont(new Font(fontTypeface,Font.PLAIN,fontSize));
 				    	}finally{}
 				    	saveSettings();
+=======
+				    	System.out.println(copyShortcuttf.getText());
+				    	System.out.println(pasteShortcuttf.getText());
+				    	System.out.println(cutShortcuttf.getText());
+				    	System.out.println(fileFormattf.getText());
+				    	System.out.println(userNametf.getText());
+>>>>>>> parent of bd3bcaf... Auto-save and other things
 				        break;
 				    case JOptionPane.CANCEL_OPTION:
 				        //...

@@ -28,8 +28,11 @@ public class Exit implements ActionListener {
 					Path path = Paths.get(JavaText.currentFilePath+"-autosave");
 				    Files.deleteIfExists(path);
 				} catch (NoSuchFileException x) {} catch (DirectoryNotEmptyException x) {} catch (IOException x) {}
+<<<<<<< HEAD
 				KeyShortcutSettings.saveSettings();
 				Settings.saveSettings();
+=======
+>>>>>>> parent of bd3bcaf... Auto-save and other things
 				System.exit(0);
 			}
 		};
