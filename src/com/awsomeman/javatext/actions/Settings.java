@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 
 import com.awsomeman.javatext.JavaText;
 import com.awsomeman.javatext.functions.CreateFile;
+import com.awsomeman.javatext.language.LanguageParser;
 
 public class Settings implements ActionListener {
 	
@@ -41,16 +42,16 @@ public class Settings implements ActionListener {
 
 			public void actionPerformed(ActionEvent e) {
 				JPanel panel = new JPanel(new GridLayout(0, 2));
-				panel.add(new JLabel("File format"));
+				panel.add(new JLabel(LanguageParser.getWords(42)));
 				JTextField fileFormattf = new JTextField(fileFormat);
 				panel.add(fileFormattf);
-				panel.add(new JLabel("Name"));
+				panel.add(new JLabel(LanguageParser.getWords(43)));
 				JTextField userNametf = new JTextField(userName);
 				panel.add(userNametf);
-				panel.add(new JLabel("Font"));
+				panel.add(new JLabel(LanguageParser.getWords(44)));
 				JTextField fonttf = new JTextField(fontTypeface);
 				panel.add(fonttf);
-				panel.add(new JLabel("Font size"));
+				panel.add(new JLabel(LanguageParser.getWords(45)));
 				JTextField fontSizetf = new JTextField(fontSize.toString());
 				panel.add(fontSizetf);
 
@@ -93,7 +94,7 @@ public class Settings implements ActionListener {
 			w.write(fileFormat+"-"+userName+"-"+autoSave+"-"+autoSaveMS+"-"+fontTypeface+"-"+fontSize);
 			w.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(JavaText.frame, "Cannot save settings");
+			JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(46));
 		}
 	}
 	

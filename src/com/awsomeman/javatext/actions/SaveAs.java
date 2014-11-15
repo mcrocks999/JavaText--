@@ -14,6 +14,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.awsomeman.javatext.JavaText;
+import com.awsomeman.javatext.language.LanguageParser;
 
 public class SaveAs extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -37,13 +38,13 @@ public class SaveAs extends JFrame implements ActionListener {
 		JFileChooser save = new JFileChooser("Save");
 		FileFilter filter;
 		if (Settings.fileFormat==".txt") {
-			filter = new FileNameExtensionFilter("Text Files .txt", "txt");
+			filter = new FileNameExtensionFilter(LanguageParser.getWords(37), "txt");
 		}else if(Settings.fileFormat==".html"){
-			filter = new FileNameExtensionFilter("Hypertext Markup Language .html", "html");
+			filter = new FileNameExtensionFilter(LanguageParser.getWords(38), "html");
 		}else if(Settings.fileFormat.isEmpty()){
-			filter = new FileNameExtensionFilter("No file format set", "");
+			filter = new FileNameExtensionFilter(LanguageParser.getWords(39), "");
 		}else{
-			filter = new FileNameExtensionFilter("Custom format "+Settings.fileFormat, Settings.fileFormat);
+			filter = new FileNameExtensionFilter(LanguageParser.getWords(40)+" "+Settings.fileFormat, Settings.fileFormat);
 		}
 		save.setFileFilter(filter);
 		save.setVisible(true);

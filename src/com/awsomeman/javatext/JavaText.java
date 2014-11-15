@@ -42,6 +42,7 @@ import com.awsomeman.javatext.actions.fontModifiers.ModifyFontSize;
 import com.awsomeman.javatext.actions.fontModifiers.ModifyFontface;
 import com.awsomeman.javatext.functions.AutoSave;
 import com.awsomeman.javatext.language.LanguageManager;
+import com.awsomeman.javatext.language.LanguageParser;
 
 public class JavaText extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -74,6 +75,9 @@ public class JavaText extends JFrame {
 	
 	public JavaText() {
 		Settings.loadSettings();
+		LanguageManager.getLanguages();
+		LanguageParser.Parse(LanguageManager.loadLanguage(LanguageManager.getFirstLanguage()));
+		
 		AutoSave AutoSaveThread = new AutoSave();
 		AutoSaveThread.start();
 		LanguageManager LngMgrThread = new LanguageManager();
@@ -81,19 +85,20 @@ public class JavaText extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 500);
+		currentFile = LanguageParser.getWords(2);
 		setTitle("JavaText - " + currentFile);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu fileMenu = new JMenu("File");
-		JMenu editMenu = new JMenu("Edit");
-		JMenu fontMenu = new JMenu("Font");
-		JMenu fontSizeMenu = new JMenu("Change Size");
-		JMenu fontTypefaceMenu = new JMenu("Set Font");
-		JMenu settingsMenu = new JMenu("Settings");
-		JMenu settingsAutosaveMenu = new JMenu("Autosave");
-		JMenu helpMenu = new JMenu("Help");
+		JMenu fileMenu = new JMenu(LanguageParser.getWords(3));
+		JMenu editMenu = new JMenu(LanguageParser.getWords(4));
+		JMenu fontMenu = new JMenu(LanguageParser.getWords(5));
+		JMenu fontSizeMenu = new JMenu(LanguageParser.getWords(6));
+		JMenu fontTypefaceMenu = new JMenu(LanguageParser.getWords(7));
+		JMenu settingsMenu = new JMenu(LanguageParser.getWords(8));
+		JMenu settingsAutosaveMenu = new JMenu(LanguageParser.getWords(9));
+		JMenu helpMenu = new JMenu(LanguageParser.getWords(10));
 		
 		menuBar.add(fileMenu);
 		menuBar.add(editMenu);
@@ -101,39 +106,39 @@ public class JavaText extends JFrame {
 		menuBar.add(settingsMenu);
 		menuBar.add(helpMenu);
 
-		JMenuItem newMenuItem = new JMenuItem("New");
-		JMenuItem openMenuItem = new JMenuItem("Open");
-		JMenuItem saveMenuItem = new JMenuItem("Save");
-		JMenuItem saveAsMenuItem = new JMenuItem("Save As");
-		JMenuItem exitMenuItem = new JMenuItem("Exit");
+		JMenuItem newMenuItem = new JMenuItem(LanguageParser.getWords(11));
+		JMenuItem openMenuItem = new JMenuItem(LanguageParser.getWords(12));
+		JMenuItem saveMenuItem = new JMenuItem(LanguageParser.getWords(13));
+		JMenuItem saveAsMenuItem = new JMenuItem(LanguageParser.getWords(14));
+		JMenuItem exitMenuItem = new JMenuItem(LanguageParser.getWords(15));
 		JMenuItem cutMenuItem = new JMenuItem(new DefaultEditorKit.CutAction());
 		JMenuItem copyMenuItem = new JMenuItem(new DefaultEditorKit.CopyAction());
 		JMenuItem pasteMenuItem = new JMenuItem(new DefaultEditorKit.PasteAction());
-		JMenuItem enlargeMenuItem = new JMenuItem("Enlarge by 1");
-		JMenuItem enlargeFiveMenuItem = new JMenuItem("Enlarge by 5");
-		JMenuItem enlargeTenMenuItem = new JMenuItem("Enlarge by 10");
-		JMenuItem shrinkMenuItem = new JMenuItem("Shrink by 1");
-		JMenuItem shrinkFiveMenuItem = new JMenuItem("Shrink by 5");
-		JMenuItem shrinkTenMenuItem = new JMenuItem("Shrink by 10");
+		JMenuItem enlargeMenuItem = new JMenuItem(LanguageParser.getWords(19));
+		JMenuItem enlargeFiveMenuItem = new JMenuItem(LanguageParser.getWords(20));
+		JMenuItem enlargeTenMenuItem = new JMenuItem(LanguageParser.getWords(21));
+		JMenuItem shrinkMenuItem = new JMenuItem(LanguageParser.getWords(22));
+		JMenuItem shrinkFiveMenuItem = new JMenuItem(LanguageParser.getWords(23));
+		JMenuItem shrinkTenMenuItem = new JMenuItem(LanguageParser.getWords(24));
 		JMenuItem setArialMenuItem = new JMenuItem("Arial");
 		JMenuItem setComicMenuItem = new JMenuItem("Comic Sans MS");
 		JMenuItem setTimesMenuItem = new JMenuItem("Times New Roman");
-		JMenuItem optionsMenuItem = new JMenuItem("Options");
-		JMenuItem keyShortcutSettingsMenuItem = new JMenuItem("Key Shortcut Settings");
-		JMenuItem openSettingsFileMenuItem = new JMenuItem("Open Settings File");
-		JMenuItem openKeyShortcutsFileMenuItem = new JMenuItem("Open Key Shortcuts File");
-		JMenuItem enableAutosaveMenuItem = new JMenuItem("Enable Autosave");
-		JMenuItem disableAutosaveMenuItem = new JMenuItem("Disable Autosave");
-		JMenuItem setMSAutosaveMenuItem = new JMenuItem("Set Autosave (ms)");
-		JMenuItem aboutMenuItem = new JMenuItem("About");
-		JMenuItem helpMenuItem = new JMenuItem("Help");
+		JMenuItem optionsMenuItem = new JMenuItem(LanguageParser.getWords(25));
+		JMenuItem keyShortcutSettingsMenuItem = new JMenuItem(LanguageParser.getWords(26));
+		JMenuItem openSettingsFileMenuItem = new JMenuItem(LanguageParser.getWords(27));
+		JMenuItem openKeyShortcutsFileMenuItem = new JMenuItem(LanguageParser.getWords(28));
+		JMenuItem enableAutosaveMenuItem = new JMenuItem(LanguageParser.getWords(29));
+		JMenuItem disableAutosaveMenuItem = new JMenuItem(LanguageParser.getWords(30));
+		JMenuItem setMSAutosaveMenuItem = new JMenuItem(LanguageParser.getWords(31));
+		JMenuItem aboutMenuItem = new JMenuItem(LanguageParser.getWords(32));
+		JMenuItem helpMenuItem = new JMenuItem(LanguageParser.getWords(33));
 		JMenuItem seperatorMenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator2MenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator3MenuItem = new JMenuItem("----------");
 		
-		cutMenuItem.setText("Cut");
-		copyMenuItem.setText("Copy");
-		pasteMenuItem.setText("Paste");
+		cutMenuItem.setText(LanguageParser.getWords(16));
+		copyMenuItem.setText(LanguageParser.getWords(17));
+		pasteMenuItem.setText(LanguageParser.getWords(18));
 
 		fileMenu.add(newMenuItem);
 		fileMenu.add(openMenuItem);
@@ -227,9 +232,9 @@ public class JavaText extends JFrame {
 		String tmp1 = "JavaText\n\n";
 		String tmp2;
 		if (!Settings.userName.isEmpty()) {
-			tmp2 = "Welcome back, "+Settings.userName+"!";
+			tmp2 = LanguageParser.getWords(34)+" "+Settings.userName+"!";
 		}else{
-			tmp2 = "Created by: 12AwsomeMan34 and MCRocks999";
+			tmp2 = LanguageParser.getWords(35);
 		}
 		String tmp3 = tmp1+tmp2;
 		textArea.setText(tmp3);

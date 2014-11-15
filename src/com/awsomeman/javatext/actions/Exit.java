@@ -23,17 +23,21 @@ public class Exit implements ActionListener {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Exiting...");
-				try {
-					Path path = Paths.get(JavaText.currentFilePath+"-autosave");
-				    Files.deleteIfExists(path);
-				} catch (NoSuchFileException x) {} catch (DirectoryNotEmptyException x) {} catch (IOException x) {}
-				KeyShortcutSettings.saveSettings();
-				Settings.saveSettings();
-				System.exit(0);
+				ExitMethod();
 			}
 		};
 	}
 
 	public void actionPerformed(ActionEvent e) {}
+
+	public static void ExitMethod() {
+		System.out.println("Exiting...");
+		try {
+			Path path = Paths.get(JavaText.currentFilePath+"-autosave");
+		    Files.deleteIfExists(path);
+		} catch (NoSuchFileException x) {} catch (DirectoryNotEmptyException x) {} catch (IOException x) {}
+		KeyShortcutSettings.saveSettings();
+		Settings.saveSettings();
+		System.exit(0);
+	}
 }

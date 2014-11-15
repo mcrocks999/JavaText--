@@ -10,7 +10,7 @@ SettingsMenu=Ustawienia
 SettingsAutosaveMenu=Automaticzne zapisanie
 HelpMenu=Pomoc
 NewMenuItem=Nowe
-OpenMenuItem=Otwoszz
+OpenMenuItem=Otwosz
 SaveMenuItem=Zapisz
 SaveAsMenuItem=Zapisz Jako
 ExitMenuItem=Zamkni
@@ -32,7 +32,7 @@ DisableAutosaveMenuItem=Wylancz Automaticzne Zapiszanie
 SetMSAutosaveMenuItem=Ustaw Automaticzne Zapiszanie (ms)
 AboutMenuItem=Co to?
 HelpMenuItem=Pomoc
-WelcomeBackMessage=Witay spowrotem,
+WelcomeBackMessage=Witam spowrotem,
 DefaultMessage=Stwozone przez: 12AwsomeMan34 i MCRocks999
 
 fileFormatTxt=Pliki textowe .txt

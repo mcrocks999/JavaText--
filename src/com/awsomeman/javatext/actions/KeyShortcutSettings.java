@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import com.awsomeman.javatext.JavaText;
 import com.awsomeman.javatext.functions.CreateFile;
 import com.awsomeman.javatext.functions.KeyShortcuts;
+import com.awsomeman.javatext.language.LanguageParser;
 
 public class KeyShortcutSettings implements ActionListener {
 	
@@ -32,23 +33,23 @@ public class KeyShortcutSettings implements ActionListener {
 
 			public void actionPerformed(ActionEvent e) {
 				JPanel panel = new JPanel(new GridLayout(0, 3));
-				panel.add(new JLabel("Undo"));
+				panel.add(new JLabel(LanguageParser.getWords(48)));
 				panel.add(new JLabel("             CTRL+"));
 				JTextField undoShortcuttf = new JTextField(KeyShortcuts.currentUndo);
 				panel.add(undoShortcuttf);
-				panel.add(new JLabel("Redo"));
+				panel.add(new JLabel(LanguageParser.getWords(49)));
 				panel.add(new JLabel("             CTRL+"));
 				JTextField redoShortcuttf = new JTextField(KeyShortcuts.currentRedo);
 				panel.add(redoShortcuttf);
-				panel.add(new JLabel("Save"));
+				panel.add(new JLabel(LanguageParser.getWords(13)));
 				panel.add(new JLabel("             CTRL+"));
 				JTextField saveShortcuttf = new JTextField(KeyShortcuts.currentSave);
 				panel.add(saveShortcuttf);
-				panel.add(new JLabel("Save As"));
+				panel.add(new JLabel(LanguageParser.getWords(14)));
 				panel.add(new JLabel("CTRL+SHIFT+"));
 				JTextField saveAsShortcuttf = new JTextField(KeyShortcuts.currentSaveAs);
 				panel.add(saveAsShortcuttf);
-				panel.add(new JLabel("Open"));
+				panel.add(new JLabel(LanguageParser.getWords(12)));
 				panel.add(new JLabel("             CTRL+"));
 				JTextField openShortcuttf = new JTextField(KeyShortcuts.currentOpen);
 				panel.add(openShortcuttf);
@@ -94,7 +95,7 @@ public class KeyShortcutSettings implements ActionListener {
 			w.write(KeyShortcuts.currentUndo+"-"+KeyShortcuts.currentRedo+"-"+KeyShortcuts.currentSave+"-"+KeyShortcuts.currentSaveAs+"-"+KeyShortcuts.currentOpen);
 			w.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(JavaText.frame, "Cannot save key shortcuts");
+			JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(50));
 		}
 	}
 	

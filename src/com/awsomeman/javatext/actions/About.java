@@ -8,6 +8,7 @@ import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 import com.awsomeman.javatext.JavaText;
+import com.awsomeman.javatext.language.LanguageParser;
 
 public class About implements ActionListener {
 	
@@ -18,7 +19,7 @@ public class About implements ActionListener {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(JavaText.frame, "JavaText - Version 1.1 \n\nDeveloped By:\n12AwsomeMan34\nand\nMCRocks999");
+				JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(52)+" 1.1 "+LanguageParser.getWords(53));
 			}
 		};
 	}
