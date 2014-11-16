@@ -33,9 +33,11 @@ public class LanguageKeeper {
 				for (String language : LanguageManager.languagePaths) {
 					String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(language));
 					language += returnedValue[0];
+					System.out.println(returnedValue[0]);
+					System.out.println(language);
 				}
 				
-				JPanel panel = new JPanel(new GridLayout(0, 2));
+				JPanel panel = new JPanel(new GridLayout(0, 1));
 			    JComboBox<?> languagecb = new JComboBox<Object>(languages);
 				panel.add(languagecb);
 

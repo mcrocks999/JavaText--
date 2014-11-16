@@ -75,6 +75,7 @@ public class JavaText extends JFrame {
 	About a;
 	Help h;
 	LanguageActions la;
+	LanguageKeeper lk;
 	
 	public JavaText() {
 		Settings.loadSettings();
@@ -139,6 +140,7 @@ public class JavaText extends JFrame {
 		JMenuItem helpMenuItem = new JMenuItem(LanguageParser.getWords(33));
 		JMenuItem setPolishMenuItem = new JMenuItem("Zmien na Polski");
 		JMenuItem setEnglishMenuItem = new JMenuItem("Change to English");
+		JMenuItem diffrentLanguageMenuItem = new JMenuItem("Other/Inny");
 		JMenuItem seperatorMenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator2MenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator3MenuItem = new JMenuItem("----------");
@@ -190,6 +192,7 @@ public class JavaText extends JFrame {
 		
 		languageMenu.add(setPolishMenuItem);
 		languageMenu.add(setEnglishMenuItem);
+		languageMenu.add(diffrentLanguageMenuItem);
 
 		n = new New();
 		o = new Open();
@@ -206,6 +209,7 @@ public class JavaText extends JFrame {
 		a = new About();
 		h = new Help();
 		la = new LanguageActions();
+		lk = new LanguageKeeper();
 		newMenuItem.addActionListener(New.New);
 		openMenuItem.addActionListener(Open.Open);
 		saveMenuItem.addActionListener(Save.Save);
@@ -234,6 +238,7 @@ public class JavaText extends JFrame {
 		helpMenuItem.addActionListener(Help.Help);
 		setEnglishMenuItem.addActionListener(LanguageActions.setEnglish);
 		setPolishMenuItem.addActionListener(LanguageActions.setPolish);
+		diffrentLanguageMenuItem.addActionListener(LanguageKeeper.openLanguageSelect);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
