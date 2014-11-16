@@ -1,5 +1,7 @@
 package com.awsomeman.javatext.language;
 
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,13 +9,73 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import com.awsomeman.javatext.JavaText;
+import com.awsomeman.javatext.actions.Exit;
+import com.awsomeman.javatext.actions.Settings;
 import com.awsomeman.javatext.functions.CreateFile;
 
 public class LanguageKeeper {
 
+	public static Action openLanguageSelect;
+	
+	public LanguageKeeper() {
+		openLanguageSelect = new AbstractAction("LanguageSelect") {
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				String[] languages = {};
+				for (String language : LanguageManager.languagePaths) {
+					String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(language));
+					language += returnedValue[0];
+				}
+				
+				JPanel panel = new JPanel(new GridLayout(0, 2));
+			    JComboBox<?> languagecb = new JComboBox<Object>(languages);
+				panel.add(languagecb);
+
+				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+				boolean hasFound;
+				switch (result) {
+				    case JOptionPane.OK_OPTION:
+				    	LanguageManager.currentLanguageName = languagecb.getSelectedItem().toString();
+				    	hasFound = false;
+				    	int languageUUID = 0;
+				    	for (String language : LanguageManager.languagePaths) {
+							if (hasFound==false) {
+								String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(language));
+								try {
+									if (returnedValue[0]==languagecb.getSelectedItem().toString()) {
+										hasFound = true;
+										languageUUID = Integer.parseInt(returnedValue[2]);
+									}
+								}finally{}
+							}
+						}
+				    	LanguageManager.currentLanguageUUID = languageUUID;
+				    	Settings.saveSettings();
+				    	int result2 = JOptionPane.showConfirmDialog(null, LanguageParser.getWords(57), LanguageParser.getWords(58), JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+				    	switch (result2) {
+						   	case JOptionPane.OK_OPTION:
+						   		Exit.ExitMethod();
+						  		break;
+						   	case JOptionPane.CANCEL_OPTION:
+						        break;
+				    	}
+				        break;
+				    case JOptionPane.CANCEL_OPTION:
+				        //...
+				        break;
+				}
+			}
+		};
+	}
+	
 	public static void getLanguagesFromFile() {
 		System.out.println("Loading languages file...");
 		File file = new File("languages.jtsettings");
