@@ -33,7 +33,8 @@ public class LanguageManager extends Thread{
 							switch (result) {
 							    case JOptionPane.YES_OPTION:
 							    	languagePaths.add(file.getCanonicalPath());
-							    	LanguageKeeper.saveLanguages();
+							    	LanguageKeeper.saveLanguages(false);
+							    	LanguageKeeper.saveLanguages(true);
 							        break;
 							    case JOptionPane.NO_OPTION:
 							    	languagePathsExclude.add(file.getCanonicalPath());

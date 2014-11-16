@@ -79,7 +79,8 @@ public class JavaText extends JFrame {
 	
 	public JavaText() {
 		Settings.loadSettings();
-		LanguageKeeper.getLanguagesFromFile();
+		LanguageKeeper.getLanguagesFromFile(false);
+		LanguageKeeper.getLanguagesFromFile(true);
 		LanguageManager.getLanguages();
 		LanguageParser.ParseAndSet(LanguageManager.loadLanguage(LanguageManager.getFirstLanguage()));
 		
