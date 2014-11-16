@@ -42,6 +42,7 @@ import com.awsomeman.javatext.actions.fontModifiers.ModifyFontSize;
 import com.awsomeman.javatext.actions.fontModifiers.ModifyFontface;
 import com.awsomeman.javatext.functions.AutoSave;
 import com.awsomeman.javatext.language.LanguageActions;
+import com.awsomeman.javatext.language.LanguageKeeper;
 import com.awsomeman.javatext.language.LanguageManager;
 import com.awsomeman.javatext.language.LanguageParser;
 
@@ -77,6 +78,7 @@ public class JavaText extends JFrame {
 	
 	public JavaText() {
 		Settings.loadSettings();
+		LanguageKeeper.getLanguagesFromFile();
 		LanguageManager.getLanguages();
 		LanguageParser.ParseAndSet(LanguageManager.loadLanguage(LanguageManager.getFirstLanguage()));
 		

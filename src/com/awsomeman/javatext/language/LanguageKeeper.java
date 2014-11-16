@@ -4,8 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
+import com.awsomeman.javatext.JavaText;
 import com.awsomeman.javatext.functions.CreateFile;
 
 public class LanguageKeeper {
@@ -45,6 +49,22 @@ public class LanguageKeeper {
 				
 				System.out.println("Successfully read languages file.");
 			} catch (IOException e1) {System.out.println("IOException. Languages will not be saved.");}
+		}
+	}
+	
+	public static void saveLanguages() {
+		File file = new File("languages.jtsettings");
+		FileWriter w;
+		try {
+			w = new FileWriter(file);
+			String newFile = "";
+			for (String path : LanguageManager.languagePaths) {
+				newFile += path+"-";
+			}
+			w.write(newFile);
+			w.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(46));
 		}
 	}
 
