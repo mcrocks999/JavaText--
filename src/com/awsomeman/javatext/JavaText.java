@@ -1,6 +1,7 @@
 package com.awsomeman.javatext;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,7 @@ import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -52,6 +54,7 @@ public class JavaText extends JFrame {
 	public static String currentFile = "Untitled";
 	public static String currentFilePath = "";
 	public static JTextArea textArea = new JTextArea();
+	public static JTextArea textAreaHelp = new JTextArea();
 	final static UndoManager undo = new UndoManager();
     Document doc = textArea.getDocument();
 	public static JavaText frame = new JavaText();
@@ -90,7 +93,7 @@ public class JavaText extends JFrame {
 		LngMgrThread.start();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 600, 500);
 		currentFile = LanguageParser.getWords(2);
 		setTitle("JavaText - " + currentFile);
 		
@@ -243,12 +246,14 @@ public class JavaText extends JFrame {
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		textArea.setLineWrap(true);
 		textArea.setFont(new Font(Settings.fontTypeface, Font.PLAIN, Settings.fontSize));
-		contentPane.add(textArea, BorderLayout.CENTER);
+		contentPane.add(textArea, BorderLayout.SOUTH);
+		contentPane.add(textAreaHelp, BorderLayout.EAST);
 		String tmp1 = "JavaText\n\n";
 		String tmp2;
 		if (!Settings.userName.isEmpty()) {
