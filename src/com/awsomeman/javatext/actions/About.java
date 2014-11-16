@@ -19,7 +19,7 @@ public class About implements ActionListener {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(52)+" 1.1 "+LanguageParser.getWords(53));
+				JOptionPane.showMessageDialog(JavaText.frame, LanguageParser.getWords(52)+" 1.1.1 "+LanguageParser.getWords(53));
 			}
 		};
 	}

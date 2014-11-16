@@ -58,7 +58,7 @@ public class Settings implements ActionListener {
 				panel.add(fontSizetf);
 				panel.add(new JLabel("Language/Jenzyk"));
 				String[] languages = {"English","Polski"};
-			    JComboBox languagecb = new JComboBox(languages);
+			    JComboBox<?> languagecb = new JComboBox<Object>(languages);
 				panel.add(languagecb);
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);

@@ -41,6 +41,7 @@ import com.awsomeman.javatext.actions.autosave.SetMS;
 import com.awsomeman.javatext.actions.fontModifiers.ModifyFontSize;
 import com.awsomeman.javatext.actions.fontModifiers.ModifyFontface;
 import com.awsomeman.javatext.functions.AutoSave;
+import com.awsomeman.javatext.language.LanguageActions;
 import com.awsomeman.javatext.language.LanguageManager;
 import com.awsomeman.javatext.language.LanguageParser;
 
@@ -72,6 +73,7 @@ public class JavaText extends JFrame {
 	SetMS sm;
 	About a;
 	Help h;
+	LanguageActions la;
 	
 	public JavaText() {
 		Settings.loadSettings();
@@ -99,6 +101,7 @@ public class JavaText extends JFrame {
 		JMenu settingsMenu = new JMenu(LanguageParser.getWords(8));
 		JMenu settingsAutosaveMenu = new JMenu(LanguageParser.getWords(9));
 		JMenu helpMenu = new JMenu(LanguageParser.getWords(10));
+		JMenu languageMenu = new JMenu("Language/Jenzyk");
 		
 		menuBar.add(fileMenu);
 		menuBar.add(editMenu);
@@ -132,6 +135,8 @@ public class JavaText extends JFrame {
 		JMenuItem setMSAutosaveMenuItem = new JMenuItem(LanguageParser.getWords(31));
 		JMenuItem aboutMenuItem = new JMenuItem(LanguageParser.getWords(32));
 		JMenuItem helpMenuItem = new JMenuItem(LanguageParser.getWords(33));
+		JMenuItem setPolishMenuItem = new JMenuItem("Zmien na Polski");
+		JMenuItem setEnglishMenuItem = new JMenuItem("Change to English");
 		JMenuItem seperatorMenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator2MenuItem = new JMenuItem("------------------------------");
 		JMenuItem seperator3MenuItem = new JMenuItem("----------");
@@ -177,8 +182,12 @@ public class JavaText extends JFrame {
 		settingsAutosaveMenu.add(setMSAutosaveMenuItem);
 		
 		helpMenu.add(helpMenuItem);
+		helpMenu.add(languageMenu);
 		helpMenu.add(seperator3MenuItem);
 		helpMenu.add(aboutMenuItem);
+		
+		languageMenu.add(setPolishMenuItem);
+		languageMenu.add(setEnglishMenuItem);
 
 		n = new New();
 		o = new Open();
@@ -194,6 +203,7 @@ public class JavaText extends JFrame {
 		sm = new SetMS();
 		a = new About();
 		h = new Help();
+		la = new LanguageActions();
 		newMenuItem.addActionListener(New.New);
 		openMenuItem.addActionListener(Open.Open);
 		saveMenuItem.addActionListener(Save.Save);
@@ -220,6 +230,8 @@ public class JavaText extends JFrame {
 		setMSAutosaveMenuItem.addActionListener(SetMS.SetMS);
 		aboutMenuItem.addActionListener(About.Help);
 		helpMenuItem.addActionListener(Help.Help);
+		setEnglishMenuItem.addActionListener(LanguageActions.setEnglish);
+		setPolishMenuItem.addActionListener(LanguageActions.setPolish);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
