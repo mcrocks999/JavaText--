@@ -29,12 +29,36 @@ public class LanguageKeeper {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				String[] languages = {};
-				for (String language : LanguageManager.languagePaths) {
-					String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(language));
-					language += returnedValue[0];
-					System.out.println(returnedValue[0]);
-					System.out.println(language);
+				File file = new File("languages.jtsettings");
+				Boolean loadSettings = false;
+				BufferedReader reader = null;
+				String[] languages = null;
+				try {
+					reader = new BufferedReader(new FileReader(file));
+					loadSettings = true;
+				} catch (FileNotFoundException e1) {
+					System.out.println("languages.jtsettings not found, attempting to generate settings file.");
+					LanguageManager.getLanguages();
+					String newFile = "";
+					for (String path : LanguageManager.languagePaths) {
+						newFile += path+"-";
+					}
+					CreateFile.createFile("languages.jtsettings",newFile);
+					try {
+						reader = new BufferedReader(new FileReader(file));
+						loadSettings = true;
+					} catch (FileNotFoundException e11) {System.out.println("IOException. Languages will not be saved.");}
+				}
+				if (loadSettings==true) {
+					System.out.println("Attempting to read languages file");
+					try {
+						String line = reader.readLine();
+						languages = line.split("-");
+						
+						reader.close();
+						
+						System.out.println("Successfully read languages file.");
+					} catch (IOException e1) {System.out.println("IOException. Languages will not be saved.");}
 				}
 				
 				JPanel panel = new JPanel(new GridLayout(0, 1));
@@ -42,24 +66,11 @@ public class LanguageKeeper {
 				panel.add(languagecb);
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-				boolean hasFound;
 				switch (result) {
 				    case JOptionPane.OK_OPTION:
-				    	LanguageManager.currentLanguageName = languagecb.getSelectedItem().toString();
-				    	hasFound = false;
-				    	int languageUUID = 0;
-				    	for (String language : LanguageManager.languagePaths) {
-							if (hasFound==false) {
-								String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(language));
-								try {
-									if (returnedValue[0]==languagecb.getSelectedItem().toString()) {
-										hasFound = true;
-										languageUUID = Integer.parseInt(returnedValue[2]);
-									}
-								}finally{}
-							}
-						}
-				    	LanguageManager.currentLanguageUUID = languageUUID;
+						String[] returnedValue = LanguageParser.Parse(LanguageManager.loadLanguage(languagecb.getSelectedItem().toString()));
+						int languageUUID = Integer.parseInt(returnedValue[2]);
+						LanguageManager.currentLanguageUUID = languageUUID;
 				    	Settings.saveSettings();
 				    	int result2 = JOptionPane.showConfirmDialog(null, LanguageParser.getWords(57), LanguageParser.getWords(58), JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				    	switch (result2) {
