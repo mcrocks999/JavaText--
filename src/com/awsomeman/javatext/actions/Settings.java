@@ -13,7 +13,6 @@ import java.io.IOException;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -56,10 +55,6 @@ public class Settings implements ActionListener {
 				panel.add(new JLabel(LanguageParser.getWords(45)));
 				JTextField fontSizetf = new JTextField(fontSize.toString());
 				panel.add(fontSizetf);
-				panel.add(new JLabel("Language/Jenzyk"));
-				String[] languages = {"English","Polski"};
-			    JComboBox<?> languagecb = new JComboBox<Object>(languages);
-				panel.add(languagecb);
 
 				int result = JOptionPane.showConfirmDialog(null, panel, "Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				switch (result) {
@@ -71,25 +66,7 @@ public class Settings implements ActionListener {
 				    		fontSize = Integer.parseInt(fontSizetf.getText());
 				    		JavaText.textArea.setFont(new Font(fontTypeface,Font.PLAIN,fontSize));
 				    	}finally{}
-				    	String prevLang = LanguageManager.currentLanguageName;
-				    	LanguageManager.currentLanguageName = languagecb.getSelectedItem().toString();
-				    	if (languagecb.getSelectedItem().toString()=="English") {
-				    		LanguageManager.currentLanguageUUID = 65296;
-				    	}
-				    	if (languagecb.getSelectedItem().toString()=="Polski") {
-				    		LanguageManager.currentLanguageUUID = 37582;
-				    	}
 				    	saveSettings();
-				    	if (LanguageManager.currentLanguageName!=prevLang) {
-				    		int result2 = JOptionPane.showConfirmDialog(null, LanguageParser.getWords(57), LanguageParser.getWords(58), JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-				    		switch (result2) {
-						    	case JOptionPane.OK_OPTION:
-						    		Exit.ExitMethod();
-						    		break;
-						    	case JOptionPane.CANCEL_OPTION:
-							        break;
-				    		}
-				    	}
 				        break;
 				    case JOptionPane.CANCEL_OPTION:
 				        //...
