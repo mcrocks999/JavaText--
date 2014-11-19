@@ -1,7 +1,7 @@
-JavaText
+JavaText++
 ========
 
-JavaText is a free, open-sourced text-editor made in pure Java.
+JavaText++ is a free, open-source text editor based on JavaText.
 
 Images:
 =====
