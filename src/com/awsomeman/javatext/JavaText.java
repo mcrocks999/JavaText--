@@ -94,7 +94,7 @@ public class JavaText extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		currentFile = LanguageParser.getWords(2);
-		setTitle("JavaText - " + currentFile);
+		setTitle("JavaText++ - " + currentFile);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
