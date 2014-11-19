@@ -4,7 +4,6 @@ Any derivative works from this must contain this file and is subject to Section 
 
 
 JavaText is a text editor created by 12AwsomeMan34 (Aaron Lingerfelt) made free for the public.
-
 Which is continued by MCRocks999 (Paul Makles) as JavaText++
 Original source can be found at: https://github.com/12AwsomeMan34/JavaText
 
