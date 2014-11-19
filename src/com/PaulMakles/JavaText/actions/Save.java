@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions;
+package com.PaulMakles.JavaText.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import com.awsomeman.javatext.JavaText;
+import com.PaulMakles.JavaText.JavaText;
 
 public class Save implements ActionListener {
 	

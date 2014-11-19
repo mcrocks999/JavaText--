@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.language;
+package com.PaulMakles.JavaText.language;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import com.awsomeman.javatext.actions.Exit;
+import com.PaulMakles.JavaText.actions.Exit;
 
 public class LanguageManager extends Thread{
 	public static ArrayList<String> languagePaths = new ArrayList<String>();

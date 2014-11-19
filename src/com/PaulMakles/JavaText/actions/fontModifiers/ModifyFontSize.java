@@ -1,12 +1,12 @@
-package com.awsomeman.javatext.actions.fontModifiers;
+package com.PaulMakles.JavaText.actions.fontModifiers;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import com.awsomeman.javatext.actions.Settings;
-import com.awsomeman.javatext.functions.UpdateFont;
+import com.PaulMakles.JavaText.actions.Settings;
+import com.PaulMakles.JavaText.functions.UpdateFont;
 
 public class ModifyFontSize {
 

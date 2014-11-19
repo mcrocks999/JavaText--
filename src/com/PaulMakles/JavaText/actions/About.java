@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions;
+package com.PaulMakles.JavaText.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +7,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 
-import com.awsomeman.javatext.JavaText;
-import com.awsomeman.javatext.language.LanguageParser;
+import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaText.language.LanguageParser;
 
 public class About implements ActionListener {
 	

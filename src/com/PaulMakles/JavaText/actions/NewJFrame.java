@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions;
+package com.PaulMakles.JavaText.actions;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.DefaultEditorKit;
 
-import com.awsomeman.javatext.JavaText;
+import com.PaulMakles.JavaText.JavaText;
 
 public class NewJFrame {
 	

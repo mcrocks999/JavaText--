@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions;
+package com.PaulMakles.JavaText.actions;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -17,10 +17,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.awsomeman.javatext.JavaText;
-import com.awsomeman.javatext.functions.CreateFile;
-import com.awsomeman.javatext.functions.KeyShortcuts;
-import com.awsomeman.javatext.language.LanguageParser;
+import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaText.functions.CreateFile;
+import com.PaulMakles.JavaText.functions.KeyShortcuts;
+import com.PaulMakles.JavaText.language.LanguageParser;
 
 public class KeyShortcutSettings implements ActionListener {
 	

@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions.autosave;
+package com.PaulMakles.JavaText.actions.autosave;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.awsomeman.javatext.actions.Settings;
+import com.PaulMakles.JavaText.actions.Settings;
 
 public class SetMS implements ActionListener {
 	

@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.language;
+package com.PaulMakles.JavaText.language;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
-package com.awsomeman.javatext.functions;
+package com.PaulMakles.JavaText.functions;
 
-import com.awsomeman.javatext.JavaText;
-import com.awsomeman.javatext.actions.Save;
-import com.awsomeman.javatext.actions.Settings;
+import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaText.actions.Save;
+import com.PaulMakles.JavaText.actions.Settings;
 
 public class AutoSave extends Thread 
 {

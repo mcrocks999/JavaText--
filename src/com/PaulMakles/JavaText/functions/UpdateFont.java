@@ -1,9 +1,9 @@
-package com.awsomeman.javatext.functions;
+package com.PaulMakles.JavaText.functions;
 
 import java.awt.Font;
 
-import com.awsomeman.javatext.JavaText;
-import com.awsomeman.javatext.actions.Settings;
+import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaText.actions.Settings;
 
 public class UpdateFont {
 	public static void updateFont() {

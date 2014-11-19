@@ -1,4 +1,4 @@
-package com.awsomeman.javatext;
+package com.PaulMakles.JavaText;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,25 +27,25 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import com.awsomeman.javatext.actions.Exit;
-import com.awsomeman.javatext.actions.About;
-import com.awsomeman.javatext.actions.Help;
-import com.awsomeman.javatext.actions.KeyShortcutSettings;
-import com.awsomeman.javatext.actions.New;
-import com.awsomeman.javatext.actions.Open;
-import com.awsomeman.javatext.actions.Save;
-import com.awsomeman.javatext.actions.SaveAs;
-import com.awsomeman.javatext.actions.Settings;
-import com.awsomeman.javatext.actions.autosave.DisableAutosave;
-import com.awsomeman.javatext.actions.autosave.EnableAutosave;
-import com.awsomeman.javatext.actions.autosave.SetMS;
-import com.awsomeman.javatext.actions.fontModifiers.ModifyFontSize;
-import com.awsomeman.javatext.actions.fontModifiers.ModifyFontface;
-import com.awsomeman.javatext.functions.AutoSave;
-import com.awsomeman.javatext.language.LanguageActions;
-import com.awsomeman.javatext.language.LanguageKeeper;
-import com.awsomeman.javatext.language.LanguageManager;
-import com.awsomeman.javatext.language.LanguageParser;
+import com.PaulMakles.JavaText.actions.About;
+import com.PaulMakles.JavaText.actions.Exit;
+import com.PaulMakles.JavaText.actions.Help;
+import com.PaulMakles.JavaText.actions.KeyShortcutSettings;
+import com.PaulMakles.JavaText.actions.New;
+import com.PaulMakles.JavaText.actions.Open;
+import com.PaulMakles.JavaText.actions.Save;
+import com.PaulMakles.JavaText.actions.SaveAs;
+import com.PaulMakles.JavaText.actions.Settings;
+import com.PaulMakles.JavaText.actions.autosave.DisableAutosave;
+import com.PaulMakles.JavaText.actions.autosave.EnableAutosave;
+import com.PaulMakles.JavaText.actions.autosave.SetMS;
+import com.PaulMakles.JavaText.actions.fontModifiers.ModifyFontSize;
+import com.PaulMakles.JavaText.actions.fontModifiers.ModifyFontface;
+import com.PaulMakles.JavaText.functions.AutoSave;
+import com.PaulMakles.JavaText.language.LanguageActions;
+import com.PaulMakles.JavaText.language.LanguageKeeper;
+import com.PaulMakles.JavaText.language.LanguageManager;
+import com.PaulMakles.JavaText.language.LanguageParser;
 
 public class JavaText extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -253,7 +253,7 @@ public class JavaText extends JFrame {
 		textArea.setFont(new Font(Settings.fontTypeface, Font.PLAIN, Settings.fontSize));
 		contentPane.add(textArea, BorderLayout.SOUTH);
 		contentPane.add(textAreaHelp, BorderLayout.EAST);
-		String tmp1 = "JavaText\n\n";
+		String tmp1 = "JavaText++\n\n";
 		String tmp2;
 		if (!Settings.userName.isEmpty()) {
 			tmp2 = LanguageParser.getWords(34)+" "+Settings.userName+"!";

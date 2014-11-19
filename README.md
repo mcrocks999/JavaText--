@@ -6,11 +6,11 @@ JavaText++ is a free, open-source text editor based on JavaText.
 Images:
 =====
 
-![](http://i.imgur.com/wwyjRSP.png)
-![](http://i.imgur.com/UZkRhta.png)
+![](http://i.imgur.com/lWlZBZX.png)
+![](http://i.imgur.com/k3QOb7k.png)
 
 Downloads:
 =====
 
-v1.1.2: https://github.com/mcrocks999/JavaText/releases/tag/1.1.2
-v1.1: https://github.com/mcrocks999/JavaText/releases/tag/1.1
+JavaText++ v0.1: https://github.com/mcrocks999/JavaText--/releases/tag/0.1
+JavaText v1.1.3: https://github.com/mcrocks999/JavaText/releases/tag/1.1.3

@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions;
+package com.PaulMakles.JavaText.actions;
 
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -18,10 +18,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.awsomeman.javatext.JavaText;
-import com.awsomeman.javatext.functions.CreateFile;
-import com.awsomeman.javatext.language.LanguageManager;
-import com.awsomeman.javatext.language.LanguageParser;
+import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaText.functions.CreateFile;
+import com.PaulMakles.JavaText.language.LanguageManager;
+import com.PaulMakles.JavaText.language.LanguageParser;
 
 public class Settings implements ActionListener {
 	

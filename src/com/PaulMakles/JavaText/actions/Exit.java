@@ -1,4 +1,4 @@
-package com.awsomeman.javatext.actions;
+package com.PaulMakles.JavaText.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import com.awsomeman.javatext.JavaText;
+import com.PaulMakles.JavaText.JavaText;
 
 public class Exit implements ActionListener {
 	
