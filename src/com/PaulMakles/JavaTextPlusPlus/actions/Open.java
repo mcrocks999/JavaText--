@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText.actions;
+package com.PaulMakles.JavaTextPlusPlus.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +16,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JFileChooser;
 
-import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaTextPlusPlus.JavaText;
 
 public class Open implements ActionListener {
 	

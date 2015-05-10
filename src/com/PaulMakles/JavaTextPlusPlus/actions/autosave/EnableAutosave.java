@@ -1,11 +1,12 @@
-package com.PaulMakles.JavaText.actions.autosave;
+package com.PaulMakles.JavaTextPlusPlus.actions.autosave;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import com.PaulMakles.JavaText.actions.Settings;
+import com.PaulMakles.JavaTextPlusPlus.actions.Settings;
 
 public class EnableAutosave implements ActionListener {
 	

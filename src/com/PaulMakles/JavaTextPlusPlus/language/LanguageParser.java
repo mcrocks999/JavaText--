@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText.language;
+package com.PaulMakles.JavaTextPlusPlus.language;
 
 import java.util.ArrayList;
 

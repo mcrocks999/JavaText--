@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText.functions;
+package com.PaulMakles.JavaTextPlusPlus.functions;
 
 import java.io.File;
 import java.io.FileWriter;

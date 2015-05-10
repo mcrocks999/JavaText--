@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText;
+package com.PaulMakles.JavaTextPlusPlus;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,25 +27,25 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import com.PaulMakles.JavaText.actions.About;
-import com.PaulMakles.JavaText.actions.Exit;
-import com.PaulMakles.JavaText.actions.Help;
-import com.PaulMakles.JavaText.actions.KeyShortcutSettings;
-import com.PaulMakles.JavaText.actions.New;
-import com.PaulMakles.JavaText.actions.Open;
-import com.PaulMakles.JavaText.actions.Save;
-import com.PaulMakles.JavaText.actions.SaveAs;
-import com.PaulMakles.JavaText.actions.Settings;
-import com.PaulMakles.JavaText.actions.autosave.DisableAutosave;
-import com.PaulMakles.JavaText.actions.autosave.EnableAutosave;
-import com.PaulMakles.JavaText.actions.autosave.SetMS;
-import com.PaulMakles.JavaText.actions.fontModifiers.ModifyFontSize;
-import com.PaulMakles.JavaText.actions.fontModifiers.ModifyFontface;
-import com.PaulMakles.JavaText.functions.AutoSave;
-import com.PaulMakles.JavaText.language.LanguageActions;
-import com.PaulMakles.JavaText.language.LanguageKeeper;
-import com.PaulMakles.JavaText.language.LanguageManager;
-import com.PaulMakles.JavaText.language.LanguageParser;
+import com.PaulMakles.JavaTextPlusPlus.actions.About;
+import com.PaulMakles.JavaTextPlusPlus.actions.Exit;
+import com.PaulMakles.JavaTextPlusPlus.actions.Help;
+import com.PaulMakles.JavaTextPlusPlus.actions.KeyShortcutSettings;
+import com.PaulMakles.JavaTextPlusPlus.actions.New;
+import com.PaulMakles.JavaTextPlusPlus.actions.Open;
+import com.PaulMakles.JavaTextPlusPlus.actions.Save;
+import com.PaulMakles.JavaTextPlusPlus.actions.SaveAs;
+import com.PaulMakles.JavaTextPlusPlus.actions.Settings;
+import com.PaulMakles.JavaTextPlusPlus.actions.autosave.DisableAutosave;
+import com.PaulMakles.JavaTextPlusPlus.actions.autosave.EnableAutosave;
+import com.PaulMakles.JavaTextPlusPlus.actions.autosave.SetMS;
+import com.PaulMakles.JavaTextPlusPlus.actions.fontModifiers.ModifyFontSize;
+import com.PaulMakles.JavaTextPlusPlus.actions.fontModifiers.ModifyFontface;
+import com.PaulMakles.JavaTextPlusPlus.functions.AutoSave;
+import com.PaulMakles.JavaTextPlusPlus.language.LanguageActions;
+import com.PaulMakles.JavaTextPlusPlus.language.LanguageKeeper;
+import com.PaulMakles.JavaTextPlusPlus.language.LanguageManager;
+import com.PaulMakles.JavaTextPlusPlus.language.LanguageParser;
 
 public class JavaText extends JFrame {
 	private static final long serialVersionUID = 1L;

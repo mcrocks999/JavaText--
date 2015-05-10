@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText.actions.autosave;
+package com.PaulMakles.JavaTextPlusPlus.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,23 +12,27 @@ import java.nio.file.Paths;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-import com.PaulMakles.JavaText.JavaText;
-import com.PaulMakles.JavaText.actions.Settings;
+import com.PaulMakles.JavaTextPlusPlus.JavaText;
 
-public class DisableAutosave implements ActionListener {
+public class New implements ActionListener {
 	
-	public static Action DisableAutosave;
+	public static Action New;
 	
-	public DisableAutosave() {
-		DisableAutosave = new AbstractAction("DisableAutosave") {
+	public New() {
+		New = new AbstractAction("New") {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				Settings.autoSave = "false";
 				try {
 					Path path = Paths.get(JavaText.currentFilePath+"-autosave");
 				    Files.deleteIfExists(path);
 				} catch (NoSuchFileException x) {} catch (DirectoryNotEmptyException x) {} catch (IOException x) {}
+				JavaText.currentFile = "Untitled";
+				JavaText.frame.setTitle("JavaText - Untitled");
+				JavaText.textArea.setText("");
+				JavaText.changed = false;
+				Save.Save.setEnabled(false);
+				SaveAs.SaveAs.setEnabled(false);
 			}
 		};
 	}

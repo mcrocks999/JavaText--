@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText.language;
+package com.PaulMakles.JavaTextPlusPlus.language;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -15,10 +15,10 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import com.PaulMakles.JavaText.JavaText;
-import com.PaulMakles.JavaText.actions.Exit;
-import com.PaulMakles.JavaText.actions.Settings;
-import com.PaulMakles.JavaText.functions.CreateFile;
+import com.PaulMakles.JavaTextPlusPlus.JavaText;
+import com.PaulMakles.JavaTextPlusPlus.actions.Exit;
+import com.PaulMakles.JavaTextPlusPlus.actions.Settings;
+import com.PaulMakles.JavaTextPlusPlus.functions.CreateFile;
 
 public class LanguageKeeper {
 

@@ -1,4 +1,4 @@
-package com.PaulMakles.JavaText.functions;
+package com.PaulMakles.JavaTextPlusPlus.functions;
 
 import java.awt.GridLayout;
 
@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import com.PaulMakles.JavaText.JavaText;
+import com.PaulMakles.JavaTextPlusPlus.JavaText;
 
 public class KeyShortcuts {
 	
